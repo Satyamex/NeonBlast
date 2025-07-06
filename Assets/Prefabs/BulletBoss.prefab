@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4233133347670056272}
   m_Layer: 0
   m_Name: BulletBoss
-  m_TagString: Enemy
+  m_TagString: ForPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6620c5f19e2e42e49bf4095c23ea0dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
+  moveSpeed: 30
 --- !u!50 &7594817265278078655
 Rigidbody2D:
   serializedVersion: 5
@@ -206,5 +206,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.41, y: 0.15}
+  m_Size: {x: 0.56, y: 0.09}
   m_EdgeRadius: 0

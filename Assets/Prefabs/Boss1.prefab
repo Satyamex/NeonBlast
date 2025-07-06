@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7362536318709209382}
+  - {fileID: 7375311971639527209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &8339426840414348103
@@ -69,7 +70,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.54
+  m_Radius: 0.96
 --- !u!114 &1810045188793935232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +91,9 @@ MonoBehaviour:
   explosionParticle: {fileID: 6348783822577301863, guid: b04e578e9c263f040a0152c614e31413, type: 3}
   camShaker: {fileID: 0}
   sprite: {fileID: 2992977573966999594}
+  bullet: {fileID: 7369401940426506753, guid: 70ce9f39c9d23354bb91fa6c4cbae6a7, type: 3}
+  shootTimer: 2.5
+  shootTrajectory: {fileID: 7375311971639527209}
 --- !u!1 &6034544031639007919
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,3 +181,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6700139750751500495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7375311971639527209}
+  m_Layer: 0
+  m_Name: ShootTrajectory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7375311971639527209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700139750751500495}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3906178593853636516}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

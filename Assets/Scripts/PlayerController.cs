@@ -25,6 +25,17 @@ public class PlayerController : MonoBehaviour
         healthCountText.text = health.ToString();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ForPlayer") 
+        {
+            health -= 4;
+            cameraShaker.Shake();
+            collision.GetComponent<BulletController>().DieInstant();
+        }
+
+    }
+
     private void Die()
     {
         return;
