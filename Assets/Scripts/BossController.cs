@@ -70,6 +70,6 @@ public class BossController : MonoBehaviour
 
     private void ShootPlayer()
     {
-        spawnedBullet = Instantiate(bullet, transform.position, shootTrajectory.rotation);
+       if (!hasDied) spawnedBullet = Instantiate(bullet, transform.position, shootTrajectory.rotation);
     }
 }
