@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         return spawnPoints[chosenSpawnPoint].transform.position;
     }
 
-    private void AllowSpawning() 
+    public void AllowSpawning() 
     {
         if (canSpawnFromBoss) canSpawn = true;
     }

@@ -11,7 +11,7 @@ public class GameplayController : MonoBehaviour
 
     private void Update()
     {
-        if (player.killCount >= 4 && bossSpawned == false) 
+        if (player.killCount >= 24 && bossSpawned == false) 
         { 
             enemySpawner.canSpawnFromBoss = false;
             bossSpawned = true;

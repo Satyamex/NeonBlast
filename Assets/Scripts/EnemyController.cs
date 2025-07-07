@@ -18,7 +18,6 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        health = Random.Range(health, health + 2);
         playerTransform = GameObject.Find("Player").transform;
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         camShaker = GameObject.Find("Main Camera").GetComponent<CameraController>();

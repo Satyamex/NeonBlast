@@ -13,6 +13,8 @@ public class BossController : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float shootTimer;
     [SerializeField] private Transform shootTrajectory;
+    [SerializeField] private float teleportTimer;
+    [SerializeField] private EnemySpawner enemySpawner;
 
     private bool hasDied = false;
     private ParticleSystem spawnedParticlesExplosion;
@@ -23,11 +25,14 @@ public class BossController : MonoBehaviour
         playerTransform = GameObject.Find("Player").transform;
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         camShaker = GameObject.Find("Main Camera").GetComponent<CameraController>();
+        enemySpawner = Camera.main.transform.Find("EnemySpawner").GetComponent<EnemySpawner>();
+
     }
 
     private void Start()
     {
         InvokeRepeating("ShootPlayer", shootTimer, shootTimer);
+        InvokeRepeating("ChangeLocation", teleportTimer, teleportTimer);
     }
 
     private void Update()
@@ -58,9 +63,12 @@ public class BossController : MonoBehaviour
         Destroy(gameObject, 7f);
         sprite.enabled = false;
         player.killCount += 1;
-        spawnedParticlesExplosion = Instantiate(explosionParticle, transform.position, shootTrajectory.rotation);
+        spawnedParticlesExplosion = Instantiate(explosionParticle, transform.position, Quaternion.identity);
         KillParticle();
         camShaker.Shake();
+        enemySpawner.canSpawnFromBoss = true;
+        enemySpawner.AllowSpawning();
+        player.health += 5;
     }
 
     private void KillParticle()
@@ -71,5 +79,13 @@ public class BossController : MonoBehaviour
     private void ShootPlayer()
     {
        if (!hasDied) spawnedBullet = Instantiate(bullet, transform.position, shootTrajectory.rotation);
+    }
+
+    private void ChangeLocation() 
+    {
+        Vector3 spawnPos = enemySpawner.GetSpawnPosition(enemySpawner.chosenSpawnPoint);
+        spawnedParticlesExplosion = Instantiate(explosionParticle, transform.position, shootTrajectory.rotation);
+        KillParticle();
+        transform.position = spawnPos;
     }
 }

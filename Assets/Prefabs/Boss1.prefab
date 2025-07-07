@@ -94,6 +94,8 @@ MonoBehaviour:
   bullet: {fileID: 7369401940426506753, guid: 70ce9f39c9d23354bb91fa6c4cbae6a7, type: 3}
   shootTimer: 2.5
   shootTrajectory: {fileID: 7375311971639527209}
+  teleportTimer: 5
+  enemySpawner: {fileID: 0}
 --- !u!1 &6034544031639007919
 GameObject:
   m_ObjectHideFlags: 0

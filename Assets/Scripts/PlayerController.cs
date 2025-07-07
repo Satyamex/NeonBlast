@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0) Die();
         killCountText.text = killCount.ToString();
         healthCountText.text = health.ToString();
+        if (health >= 20) health = 20;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
