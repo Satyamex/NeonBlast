@@ -26,7 +26,6 @@ public class BossController : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         camShaker = GameObject.Find("Main Camera").GetComponent<CameraController>();
         enemySpawner = Camera.main.transform.Find("EnemySpawner").GetComponent<EnemySpawner>();
-
     }
 
     private void Start()
@@ -83,6 +82,7 @@ public class BossController : MonoBehaviour
 
     private void ChangeLocation() 
     {
+        if (hasDied) return;
         Vector3 spawnPos = enemySpawner.GetSpawnPosition(enemySpawner.chosenSpawnPoint);
         spawnedParticlesExplosion = Instantiate(explosionParticle, transform.position, shootTrajectory.rotation);
         KillParticle();
