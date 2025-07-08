@@ -15,6 +15,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private Transform shootTrajectory;
     [SerializeField] private float teleportTimer;
     [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private SpriteRenderer attackIndicator;
 
     private bool hasDied = false;
     private ParticleSystem spawnedParticlesExplosion;
@@ -30,8 +31,8 @@ public class BossController : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("ShootPlayer", shootTimer, shootTimer);
         InvokeRepeating("ChangeLocation", teleportTimer, teleportTimer);
+        InvokeRepeating("HandleAttackCycle", shootTimer, shootTimer);
     }
 
     private void Update()
@@ -88,4 +89,18 @@ public class BossController : MonoBehaviour
         KillParticle();
         transform.position = spawnPos;
     }
+
+    private void NoAttackIndicate()
+    {
+        attackIndicator.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void HandleAttackCycle()
+    {
+        if (hasDied) return;
+        attackIndicator.GetComponent<SpriteRenderer>().enabled = true;
+        Invoke("ShootPlayer", 0.25f);
+        Invoke("NoAttackIndicate", 0.5f);
+    }
+
 }
